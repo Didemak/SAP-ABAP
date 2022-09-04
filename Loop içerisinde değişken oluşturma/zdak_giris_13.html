@@ -1,0 +1,48 @@
+<!DOCTY "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xht />
+<title>ZDAK_GIRIS_13</title>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: ZDAK_GIRIS_13</h2>
+<h3> Description: </h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Report&nbsp;ZDAK_GIRIS_13<br />
+*&---------------------------------------------------------------------*<br />
+*&<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+REPORT zdak_giris_13.<br />
+<br />
+DATA gt_sbook LIKE TABLE OF sbook. "table<br />
+DATA gs_sbook LIKE LINE OF gt_sbook. "structure<br />
+<br />
+"bagajý 20kg nin üstündeki yolcularý bulmak için<br />
+DATA gv_bagaj TYPE i.<br />
+<br />
+SELECT * FROM sbook INTO TABLE gt_sbook UP TO 500 ROWS.<br />
+<br />
+LOOP AT gt_sbook INTO gs_sbook.<br />
+&nbsp;&nbsp;IF&nbsp;gs_sbook-LUGGWEIGHT&nbsp;GT&nbsp;5.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gv_bagaj&nbsp;=&nbsp;gv_bagaj&nbsp;+&nbsp;1.<br />
+&nbsp;&nbsp;ENDIF.<br />
+ENDLOOP.<br />
+<br />
+WRITE : 'Bagajý geçen yolcu sayýsý', gv_bagaj.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
