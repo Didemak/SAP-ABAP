@@ -1,0 +1,50 @@
+<!DOCTY "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xht />
+<title>ZDAK_GIRIS_19</title>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: ZDAK_GIRIS_19</h2>
+<h3> Description: </h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Report&nbsp;ZDAK_GIRIS_19<br />
+*&---------------------------------------------------------------------*<br />
+*&<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+REPORT ZDAK_GIRIS_19.<br />
+<br />
+Data: BEGIN OF gs_tablo,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_sayi1&nbsp;type&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_sayi2&nbsp;type&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;of&nbsp;gs_tablo,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gt_tablo&nbsp;like&nbsp;table&nbsp;of&nbsp;gs_tablo.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;DO&nbsp;5&nbsp;TIMES.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_tablo-gv_sayi1&nbsp;=&nbsp;sy-index.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_tablo-gv_sayi2&nbsp;=&nbsp;sy-index&nbsp;**&nbsp;2.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;append&nbsp;gs_tablo&nbsp;to&nbsp;gt_tablo.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ENDDO.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_tablo&nbsp;into&nbsp;gs_tablo&nbsp;INDEX&nbsp;3.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_tablo-gv_sayi2&nbsp;=&nbsp;40.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Modify&nbsp;gt_tablo&nbsp;from&nbsp;gs_tablo&nbsp;INDEX&nbsp;5.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;BREAK-POINT.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
