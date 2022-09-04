@@ -1,0 +1,101 @@
+<!DOCTY "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xht />
+<title>ZDAK_EGT_0002</title>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: ZDAK_EGT_0002</h2>
+<h3> Description: Eðitim Videosu</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Report&nbsp;ZDAK_EGT_0002<br />
+*&---------------------------------------------------------------------*<br />
+*&<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+REPORT zdak_egt_0002.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*DATA&nbsp;gv_desg1&nbsp;TYPE&nbsp;i.&nbsp;"integer&nbsp;4&nbsp;byte&nbsp;alabilir.&nbsp;integer&nbsp;basýnda&nbsp;boþluklarla&nbsp;default&nbsp;olarak&nbsp;tanýmlanýr.<br />
+*DATA&nbsp;gv_desg2&nbsp;TYPE&nbsp;n&nbsp;LENGTH&nbsp;10.&nbsp;"1&nbsp;larakterli&nbsp;numerik&nbsp;bir&nbsp;ifade&nbsp;alýr.&nbsp;Lengt&nbsp;kaç&nbsp;basamaklý&nbsp;bir&nbsp;ifade&nbsp;tutmasýný&nbsp;belirmemizi&nbsp;belirtiyor.<br />
+*&nbsp;CTRL&nbsp;&lt;&nbsp;yorum&nbsp;satýrýna&nbsp;alýr.&nbsp;&nbsp;&nbsp;"numerik&nbsp;ifadeler&nbsp;de&nbsp;karakter&nbsp;uzunluðu&nbsp;kadar&nbsp;baþýna&nbsp;0&nbsp;alýr.<br />
+<br />
+   </div>
+   <div class="code">
+DATA: gv_desg1 TYPE i, "Birden fazla data tanýmlamýzý saðlayan bir yapý. Ýki nokta koyarak yapýlýyor.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_desg2&nbsp;TYPE&nbsp;n&nbsp;LENGTH&nbsp;10,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_sonuc&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_metin&nbsp;TYPE&nbsp;string.<br />
+<br />
+gv_desg1 = 1.<br />
+gv_desg2 = 10.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;WRITE&nbsp;gv_desg1.&nbsp;"Ekana&nbsp;bastýrmak&nbsp;için&nbsp;write&nbsp;yanýna&nbsp;da&nbsp;ekrana&nbsp;bastýrmasýný&nbsp;istediðim&nbsp;ifadeyi&nbsp;yazýyorum.<br />
+*&nbsp;WRITE&nbsp;/&nbsp;gv_desg2.<br />
+<br />
+   </div>
+   <div class="code">
+gv_metin = 'Toplamý ='.<br />
+gv_sonuc = gv_desg1 + gv_desg2.<br />
+WRITE:  gv_metin,  gv_sonuc.<br />
+<br />
+<br />
+gv_sonuc = gv_desg1 - gv_desg2.<br />
+WRITE : /  'Farký =' ,gv_sonuc. "daha önceden tanýmlandýðý için gv_metin = 'Farký ='.<br />
+" yazmadan direk bu þekilde kullanýlabilinir.<br />
+<br />
+IF gv_desg1 &gt; gv_desg2.<br />
+&nbsp;&nbsp;WRITE:&nbsp;/&nbsp;'Birinci&nbsp;sayý&nbsp;büyüktür.'.<br />
+ELSEIF  gv_desg1 &lt; gv_desg2.<br />
+&nbsp;&nbsp;WRITE:&nbsp;/&nbsp;'Ýkinci&nbsp;sayý&nbsp;büyüktür.'.<br />
+ELSE.<br />
+&nbsp;&nbsp;WRITE:&nbsp;/&nbsp;'Ýki&nbsp;sayý&nbsp;eþittir.'.<br />
+ENDIF.<br />
+<br />
+CASE gv_desg1.<br />
+&nbsp;&nbsp;WHEN&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WRITE:&nbsp;/&nbsp;'Deðiþken&nbsp;deðerim&nbsp;1.'.<br />
+&nbsp;&nbsp;WHEN&nbsp;2.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WRITE:&nbsp;/&nbsp;'Deðiþken&nbsp;deðerim&nbsp;2.'.<br />
+&nbsp;&nbsp;WHEN&nbsp;3.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WRITE:&nbsp;/&nbsp;'Deðiþken&nbsp;deðerim&nbsp;3.'.<br />
+&nbsp;&nbsp;WHEN&nbsp;4.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WRITE:&nbsp;/&nbsp;'Deðiþken&nbsp;deðerim&nbsp;4.'.<br />
+&nbsp;&nbsp;WHEN&nbsp;5.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WRITE:&nbsp;/&nbsp;'Deðiþken&nbsp;deðerim&nbsp;5.'.<br />
+&nbsp;&nbsp;WHEN&nbsp;6.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WRITE:&nbsp;/&nbsp;'Deðiþken&nbsp;deðerim&nbsp;6.'.<br />
+&nbsp;&nbsp;WHEN&nbsp;7.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WRITE:&nbsp;/&nbsp;'Deðiþken&nbsp;deðerim&nbsp;7.'.<br />
+&nbsp;&nbsp;WHEN&nbsp;OTHERS.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WRITE:&nbsp;/&nbsp;'Hiçbir&nbsp;deðere&nbsp;eþit&nbsp;deðil!'.<br />
+ENDCASE.<br />
+<br />
+DO 10 TIMES.<br />
+&nbsp;&nbsp;gv_desg1&nbsp;=&nbsp;gv_desg1&nbsp;+&nbsp;1.<br />
+&nbsp;&nbsp;WRITE:&nbsp;/&nbsp;gv_desg1,&nbsp;'Do&nbsp;döngüsünü&nbsp;öðreniyouz'.<br />
+ENDDO.<br />
+<br />
+WHILE gv_desg1 &lt; 10.<br />
+&nbsp;&nbsp;gv_desg1&nbsp;=&nbsp;gv_desg1&nbsp;+&nbsp;1.<br />
+&nbsp;&nbsp;WRITE:&nbsp;/&nbsp;gv_desg1,&nbsp;'whýle&nbsp;döngüsünü&nbsp;öðreniyouz'.<br />
+ENDWHILE.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>

@@ -1,0 +1,103 @@
+<!DOCTY "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xht />
+<title>ZDAK_EGT_0003</title>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: ZDAK_EGT_0003</h2>
+<h3> Description: </h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Report&nbsp;ZDAK_EGT_0003<br />
+*&---------------------------------------------------------------------*<br />
+*&<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+REPORT zdak_egt_0003.<br />
+<br />
+DATA : gv_persid   TYPE zdak_persid_de, " variable tanýmladýk.  gv_persid bu ZDAK_PERSID_DE(persid nin data elementi) type ý refere ediyor<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_persad&nbsp;&nbsp;&nbsp;TYPE&nbsp;zdak_persad_de,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_persoyad&nbsp;TYPE&nbsp;zdak_persoyad_de,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_perscýns&nbsp;TYPE&nbsp;zdak_perscins_de,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_pers_t&nbsp;&nbsp;&nbsp;TYPE&nbsp;zdak_pers_t,&nbsp;"&nbsp;gs&nbsp;structer&nbsp;tanýmladýk.&nbsp;tablonun&nbsp;ismini&nbsp;yazdýk<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gt_pers_t&nbsp;&nbsp;&nbsp;TYPE&nbsp;TABLE&nbsp;OF&nbsp;&nbsp;zdak_pers_t.&nbsp;"&nbsp;gt&nbsp;internal&nbsp;tabloyu&nbsp;tanýmladým.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*SELECT<br />
+<br />
+   </div>
+   <div class="code">
+SELECT * FROM zdak_pers_t "internal tablo çektik<br />
+&nbsp;&nbsp;INTO&nbsp;TABLE&nbsp;&nbsp;gt_pers_t<br />
+&nbsp;&nbsp;WHERE&nbsp;pers_id&nbsp;EQ&nbsp;1&nbsp;.<br />
+<br />
+SELECT SINGLE * FROM zdak_pers_t  "structer çektik<br />
+&nbsp;&nbsp;INTO&nbsp;gs_pers_t&nbsp;.<br />
+<br />
+SELECT SINGLE pers_id FROM zdak_pers_t "tek bir kolon çektik. tablonun veritabanýndaki adý<br />
+&nbsp;&nbsp;INTO&nbsp;gv_persid&nbsp;.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*UPDATE<br />
+<br />
+   </div>
+   <div class="code">
+UPDATE zdak_pers_t SET Pers_AD ='Derya'<br />
+WHERE PERS_ID EQ 1.<br />
+<br />
+WRITE :'Update komutu çalýþtýrýldý!'.<br />
+<br />
+<br />
+   </div>
+   <div class="codeComment">
+*INSERT<br />
+   </div>
+   <div class="code">
+gs_pers_t-pers_id = 3.<br />
+gs_pers_t-pers_ad = 'Hazal'.<br />
+gs_pers_t-pers_soyad = 'AKÇA'.<br />
+gs_pers_t-pers_cins = 'K'.<br />
+INSERT zdak_pers_t FROM gs_pers_t.<br />
+<br />
+WRITE :'Insert komutu çalýþtýrýldý!'.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*DELETE<br />
+<br />
+   </div>
+   <div class="code">
+Delete from  zdak_pers_t where pers_id eq 2.<br />
+WRITE :'Delete komutu çalýþtýrýldý!'.<br />
+<br />
+<br />
+   </div>
+   <div class="codeComment">
+*MODIFY<br />
+   </div>
+   <div class="code">
+gs_pers_t-pers_id = 4.<br />
+gs_pers_t-pers_ad = 'Gül'.<br />
+gs_pers_t-pers_soyad = 'Alkan'.<br />
+gs_pers_t-pers_cins = 'K'.<br />
+MODIFY zdak_pers_t FROM gs_pers_t.<br />
+"keyleri ortak bir kayýt varsa diðer kolonlarýn hepsini update edicek<br />
+"ama burda verdiðim key tablomda yoksa onu yeni bir satýr olarak ekliyecek.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>

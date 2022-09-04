@@ -1,0 +1,42 @@
+<!DOCTY "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xht />
+<title>ZBUY_P01_I01</title>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: ZBUY_P01_I01</h2>
+<h3> Description: Include ZBUY_P01_I01</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Include&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZBUY_P01_I01<br />
+*&---------------------------------------------------------------------*<br />
+<br />
+   </div>
+   <div class="code">
+type-pools : slis .<br />
+<br />
+tables zbuy_t01 .<br />
+tables zbuy_t02 .<br />
+<br />
+data : gt_fcat   type  slis_t_fieldcat_alv  with header line,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_fcat&nbsp;&nbsp;&nbsp;like&nbsp;&nbsp;gt_fcat,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_layout&nbsp;type&nbsp;&nbsp;slis_layout_alv,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gt_top&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;&nbsp;slis_t_listheader&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;header&nbsp;line.<br />
+<br />
+<br />
+data gt_ot like zbuy_str occurs 0 with header line.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>

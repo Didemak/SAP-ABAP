@@ -1,0 +1,56 @@
+<!DOCTY "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xht />
+<title>ZDAK_EGT_0001</title>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: ZDAK_EGT_0001</h2>
+<h3> Description: </h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Report&nbsp;ZDAK_EGT_0001<br />
+*&---------------------------------------------------------------------*<br />
+*&<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+REPORT zdak_egt_0001.<br />
+<br />
+DATA gv_desg1 TYPE p DECIMALS 2. " virgülden sonra iki karakter tutuyor<br />
+DATA gv_desg2 TYPE int4.<br />
+DATA gv_desg3 TYPE n.<br />
+DATA gv_desg4 TYPE c.<br />
+DATA gv_desg5 TYPE string.<br />
+<br />
+gv_desg1 = '12.54'.<br />
+gv_desg1 = '41.7867'.<br />
+<br />
+gv_desg2 = 123.<br />
+gv_desg2 = 4567.<br />
+<br />
+gv_desg3 = 654.<br />
+<br />
+gv_desg4 = 'A'.<br />
+gv_desg4 = 'c'.<br />
+<br />
+gv_desg5 = 'Herhangi bir cümle yazýlabilir.'.<br />
+<br />
+&nbsp;WRITE:&nbsp;/&nbsp;gv_desg1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_desg2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_desg3,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_desg4.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>

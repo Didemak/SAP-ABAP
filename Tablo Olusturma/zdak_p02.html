@@ -1,0 +1,49 @@
+<!DOCTY "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xht />
+<title>ZDAK_P02</title>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: ZDAK_P02</h2>
+<h3> Description: SQL</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Report&nbsp;ZDAK_P02<br />
+*&---------------------------------------------------------------------*<br />
+*&<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+REPORT ZDAK_P02.<br />
+<br />
+data gs_t01 type zdak_t01 .<br />
+<br />
+"programýn içerisine yazdýk.<br />
+gs_t01-ogrenci_no = 5 .<br />
+gs_t01-ogrenci_adi = 'Leyla' .<br />
+gs_t01-ogrenci_soyadi = 'Akça' .<br />
+"bunlarý veritabanýna göndermek için<br />
+insert zdak_t01 from gs_t01.<br />
+"program çalýþtýktan sonra direkt veri gitmez programdan çýktýktan sonra veri gitmiþ olur.<br />
+"biz program içerisinde çalýþtýnda gitmesini istediðimiz için commit work and waiti kullanmýþ olduk.<br />
+"insert,update,delete de kullanýlýr.<br />
+commit work and wait .<br />
+<br />
+"Komutunda ise eðer hala kuyruktaysa veri yani commit olmadýysa veriyi veritabanýna atmadan geri siler.yani atýyormuþ gibi yapar ama atmaz.<br />
+" rollback work.<br />
+break dak.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>

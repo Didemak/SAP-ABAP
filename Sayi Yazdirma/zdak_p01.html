@@ -1,0 +1,120 @@
+<!DOCTY "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xht />
+<title>ZDAK_P01</title>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: ZDAK_P01</h2>
+<h3> Description: Ýlk program</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Report&nbsp;ZDAK_P01<br />
+*&---------------------------------------------------------------------*<br />
+*&<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+REPORT ZDAK_P01.<br />
+<br />
+data gc_c type char2 value 'OK' . "constant<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"char2&nbsp;2&nbsp;karakterli&nbsp;yazýlabilceðini&nbsp;ifade&nbsp;eder.<br />
+DATA gv_i type i . "integer<br />
+<br />
+data gv_p type p decimals 2 .  " virgülden sonra 2 sayý yazýlýr.<br />
+<br />
+data : gv_value1 type i ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_value2&nbsp;type&nbsp;i&nbsp;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_total&nbsp;&nbsp;type&nbsp;i&nbsp;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_result&nbsp;type&nbsp;char11&nbsp;.<br />
+<br />
+<br />
+"data element tanýmlama<br />
+data gv_ogrenci_no type zdak_t01-ogrenci_no .<br />
+data gv_ogrenci_adi type zdak_t01-ogrenci_adi .<br />
+<br />
+"1)structure tanýmlama<br />
+data : begin of gs_ogrenci ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;zdak_t01-ogrenci_no&nbsp;,&nbsp;&nbsp;&nbsp;"bu&nbsp;aradaki&nbsp;alan&nbsp;structure&nbsp;ýn&nbsp;alanlarýný&nbsp;temsil&nbsp;eder.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ad&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;zdak_t01-ogrenci_adi&nbsp;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;soyad&nbsp;type&nbsp;zdak_t01-ogrenci_soyadi&nbsp;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;of&nbsp;gs_ogrenci&nbsp;.<br />
+<br />
+<br />
+data : begin of gs_ogretmen ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;zdak_s01-no&nbsp;,&nbsp;"structureýný&nbsp;oluþturduðumuz&nbsp;tablonun&nbsp;adýný&nbsp;buraya&nbsp;verdik<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ad&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;zdak_s01-ad&nbsp;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;soyad&nbsp;type&nbsp;zdak_s01-soyad&nbsp;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;of&nbsp;gs_ogretmen&nbsp;.<br />
+<br />
+<br />
+"þu tablonun alanlarýnda oluþan bir tablo yaratsýn<br />
+data gt_ogrenci type table of zdak_t01.<br />
+"bu tipte bir structure oluþtur anlamýna gelir.<br />
+data gs_ogrenci_se11 type zdak_s01.<br />
+<br />
+&nbsp;"2)bunun&nbsp;yerine&nbsp;öðretmen&nbsp;structure&nbsp;ý&nbsp;þu&nbsp;þekilde&nbsp;de&nbsp;tanýmlanabilir.<br />
+&nbsp;&nbsp;data&nbsp;gs_ogretmen_se11&nbsp;type&nbsp;zdak_s01&nbsp;.<br />
+&nbsp;"ve&nbsp;daha&nbsp;sonrada&nbsp;direkt&nbsp;þu&nbsp;þekilde&nbsp;structure&nbsp;atamasý&nbsp;yapýlabilir.<br />
+gs_ogretmen_se11-no = 200 .<br />
+gs_ogretmen_se11-ad = 'Ömer Faruk'.<br />
+gs_ogretmen_se11-soyad = 'Akça' .<br />
+<br />
+<br />
+"stucture a atama<br />
+gs_ogrenci-no = 100 .<br />
+gs_ogrenci-ad = 'Didem'.<br />
+gs_ogrenci-soyad = 'Akça' .<br />
+<br />
+gv_value1 = 3 .<br />
+gv_value2 = 5 .<br />
+<br />
+gv_total = gv_value1 + gv_value2 .<br />
+<br />
+   </div>
+   <div class="codeComment">
+*BREAK-POINT&nbsp;.<br />
+<br />
+   </div>
+   <div class="code">
+if gv_total gt 10 or gv_total eq 10.<br />
+&nbsp;&nbsp;gv_result&nbsp;=&nbsp;'10dan&nbsp;büyük'&nbsp;.<br />
+else.<br />
+&nbsp;&nbsp;gv_result&nbsp;=&nbsp;'10dan&nbsp;küçük'.<br />
+endif .<br />
+"gt büyük demektir.<br />
+"ge büyük eþit demektir.<br />
+"lt küçüktür<br />
+"le küçük eþittir.<br />
+"eq eþittir.<br />
+"ne eþit deðildir.<br />
+"cp içinde bu deðer geçiyorsa demektir.<br />
+"if not deðil anlamý taþýyor.<br />
+"or ikisinden biri geçerliyse<br />
+"and ikiside geçerliyse<br />
+<br />
+CASE gv_total.<br />
+&nbsp;&nbsp;WHEN&nbsp;10.&nbsp;gv_result&nbsp;=&nbsp;'10&nbsp;a&nbsp;eþit.'.<br />
+&nbsp;&nbsp;WHEN&nbsp;OTHERS.&nbsp;gv_result&nbsp;=&nbsp;'10&nbsp;dan&nbsp;farklý.'.<br />
+ENDCASE.<br />
+<br />
+DO 5 TIMES. "5 kere dönücek anlamýndadýr.<br />
+write / sy-index ."system structer ý kaçýncý dönüþte olduðunu yazýcak<br />
+ENDDO.<br />
+<br />
+"Loop foreach le ayný iþi yapmaktadýr.<br />
+break dak .<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>

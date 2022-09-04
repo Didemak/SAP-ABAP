@@ -1,0 +1,113 @@
+<!DOCTY "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xht />
+<title>ZDAK_EGT_0005</title>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: ZDAK_EGT_0005</h2>
+<h3> Description: Event-form-global local-ýnclude</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Report&nbsp;ZDAK_EGT_0005<br />
+*&---------------------------------------------------------------------*<br />
+*&<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+REPORT zdak_egt_0005.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;EVENT&nbsp;:Program&nbsp;akýþýný&nbsp;düzene&nbsp;sokmak&nbsp;için&nbsp;kullandýðýmýz&nbsp;key&nbsp;wordlerdir.&nbsp;4&nbsp;çeþit&nbsp;event&nbsp;vardýr.<br />
+*PARAMETERS&nbsp;:&nbsp;p_num&nbsp;type&nbsp;int4.<br />
+*<br />
+*INITIALIZATION.&nbsp;"Ekrana&nbsp;girilen&nbsp;user&nbsp;input&nbsp;parametrelerinden&nbsp;önce&nbsp;çalýþmasýný&nbsp;istediðimiz&nbsp;key&nbsp;wordleri&nbsp;yazdýðýmýz&nbsp;alan.<br />
+*&nbsp;p_num&nbsp;=&nbsp;12.&nbsp;"ekrana&nbsp;girili&nbsp;sayýyý&nbsp;belirtir.<br />
+*<br />
+*AT&nbsp;SELECTION-SCREEN."screen&nbsp;deki&nbsp;kullandýðýmýz&nbsp;imput&nbsp;parametrelerini&nbsp;özelleþtirdiðimiz&nbsp;yapý.<br />
+*&nbsp;&nbsp;p_num&nbsp;=&nbsp;p_num&nbsp;+&nbsp;1.&nbsp;"sayýyý&nbsp;her&nbsp;enterda&nbsp;artýrýr<br />
+*<br />
+*START-OF-SELECTION."çalýþmasýný&nbsp;istediðimiz&nbsp;abap&nbsp;kodlarýný&nbsp;yazacaðýmýz&nbsp;yer.<br />
+*&nbsp;WRITE&nbsp;'START-OF-SELECTION'.<br />
+*<br />
+*END-OF-SELECTION."formlarý&nbsp;kullanacaðýmýz&nbsp;yapýlar.<br />
+*&nbsp;WRITE&nbsp;'END-OF-SELECTION'.<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+*DATA&nbsp;:&nbsp;gv_num1&nbsp;TYPE&nbsp;int4,<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_num2&nbsp;TYPE&nbsp;int4,<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_num3&nbsp;TYPE&nbsp;int4.<br />
+*<br />
+*<br />
+*INITIALIZATION.<br />
+*<br />
+*AT&nbsp;SELECTION-SCREEN.<br />
+*<br />
+*START-OF-SELECTION.<br />
+*&nbsp;&nbsp;PERFORM&nbsp;sayiya_bir_ekle.&nbsp;"form&nbsp;çaðýrmak&nbsp;için&nbsp;&nbsp;perform&nbsp;kullanýlýr.<br />
+*&nbsp;&nbsp;PERFORM&nbsp;sayiya_bir_ekle.<br />
+*&nbsp;&nbsp;PERFORM&nbsp;sayiya_bir_ekle.<br />
+*&nbsp;&nbsp;PERFORM&nbsp;sayiya_bir_ekle.<br />
+*&nbsp;&nbsp;WRITE&nbsp;gv_num1.<br />
+*<br />
+*&nbsp;&nbsp;PERFORM&nbsp;iki_sayinin_carpimi&nbsp;USING&nbsp;10<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.<br />
+*<br />
+*&nbsp;&nbsp;gv_num2&nbsp;=&nbsp;15.<br />
+*&nbsp;&nbsp;gv_num3&nbsp;=&nbsp;156.<br />
+*&nbsp;&nbsp;PERFORM&nbsp;iki_sayinin_farki&nbsp;USING&nbsp;gv_num2<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_num3.<br />
+*<br />
+*END-OF-SELECTION.<br />
+*FORM&nbsp;sayiya_bir_ekle.<br />
+*&nbsp;&nbsp;gv_num1&nbsp;=&nbsp;gv_num1&nbsp;+&nbsp;1.<br />
+*ENDFORM.<br />
+*<br />
+*FORM&nbsp;iki_sayinin_carpimi&nbsp;USING&nbsp;p_num1&nbsp;&nbsp;"burada&nbsp;kulanmak&nbsp;istediðim&nbsp;parametrelere&nbsp;using&nbsp;diyebilirim.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_num2&nbsp;.<br />
+*&nbsp;&nbsp;DATA:&nbsp;lv_sonuc&nbsp;TYPE&nbsp;int4.<br />
+*&nbsp;&nbsp;lv_sonuc&nbsp;=&nbsp;p_num1&nbsp;*&nbsp;p_num2.<br />
+*&nbsp;&nbsp;WRITE:'sonuç&nbsp;='&nbsp;,&nbsp;lv_sonuc.<br />
+*ENDFORM.<br />
+**&---------------------------------------------------------------------*<br />
+**&&nbsp;Form&nbsp;iki_sayinin_farki<br />
+**&---------------------------------------------------------------------*<br />
+**&&nbsp;text<br />
+**&---------------------------------------------------------------------*<br />
+**&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;&nbsp;GV_NUM2<br />
+**&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;&nbsp;GV_NUM3<br />
+**&---------------------------------------------------------------------*<br />
+*FORM&nbsp;iki_sayinin_farki&nbsp;&nbsp;USING&nbsp;&nbsp;&nbsp;&nbsp;p_num2<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_num3.<br />
+*&nbsp;&nbsp;DATA:&nbsp;lv_sonuc&nbsp;TYPE&nbsp;int4.<br />
+*&nbsp;&nbsp;lv_sonuc&nbsp;=&nbsp;p_num2&nbsp;*&nbsp;p_num3.<br />
+*&nbsp;&nbsp;WRITE:'Farký&nbsp;='&nbsp;,&nbsp;lv_sonuc.<br />
+*ENDFORM.<br />
+<br />
+<br />
+<br />
+   </div>
+   <div class="code">
+include <a href ="zdak_egt_0005_top.html">zdak_egt_0005_top</a>. "top diye bir include oluþturdum ve bunlarýn içerisindeki deðiþkenleri bu program içerisinde kullanabiliyorum.<br />
+include <a href ="zdak_egt_0005_frm.html">zdak_egt_0005_frm</a>.<br />
+<br />
+START-OF-SELECTION.<br />
+&nbsp;&nbsp;PERFORM&nbsp;form1.<br />
+&nbsp;&nbsp;PERFORM&nbsp;form2.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>

@@ -1,0 +1,45 @@
+<!DOCTY "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xht />
+<title>ZDAK_ODEV_P01</title>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: ZDAK_ODEV_P01</h2>
+<h3> Description: Program ZDAK_ODEV_P01</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Report&nbsp;ZDAK_ODEV_P01<br />
+*&---------------------------------------------------------------------*<br />
+*&<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+REPORT zdak_odev_p01.<br />
+<br />
+DATA gv_j TYPE i VALUE 0 .<br />
+DATA gv_k TYPE i VALUE 0 .<br />
+<br />
+DO 5 TIMES.<br />
+&nbsp;&nbsp;gv_k&nbsp;=&nbsp;gv_k&nbsp;+&nbsp;1&nbsp;.<br />
+&nbsp;&nbsp;&nbsp;write&nbsp;/&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;"ULINE&nbsp;kelimesi&nbsp;satýr&nbsp;atlatýr&nbsp;ve&nbsp;çizgi&nbsp;çeker.<br />
+&nbsp;&nbsp;gv_j&nbsp;=&nbsp;0&nbsp;.<br />
+&nbsp;&nbsp;DO&nbsp;gv_k&nbsp;TIMES&nbsp;.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gv_j&nbsp;=&nbsp;gv_j&nbsp;+&nbsp;1&nbsp;.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WRITE&nbsp;&nbsp;gv_j&nbsp;.<br />
+&nbsp;&nbsp;ENDDO.<br />
+ENDDO.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
